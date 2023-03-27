@@ -1,0 +1,39 @@
+
+
+<mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef>Id</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.id }}</mat-cell>
+      </ng-container>
+  
+      
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.name }}</mat-cell>
+    </ng-container>
+  
+    
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef>Price</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.price }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+        <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
+        <mat-cell *matCellDef="let element"> <button mat-icon-button matTooltip="Click to Edit" class="iconbutton"
+            color="primary" (click)="edit(element)">
+            <mat-icon>edit</mat-icon>
+          </button> </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+        <mat-cell *matCellDef="let element"> <button mat-icon-button matTooltip="Click to Delete" class="iconbutton"
+            (click)="delete(element.id)" color="warn">
+            <mat-icon>delete</mat-icon>
+          </button> </mat-cell>
+      </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
